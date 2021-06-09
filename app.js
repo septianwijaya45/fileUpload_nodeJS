@@ -12,7 +12,7 @@ const port = process.env.PORT || 5000;
 // File Upload
 app.use(fileUpload());
 
-// Parsing application/x-www-form-urlcode
+// Parsing application/x-www-form-urlcode || detect template in public
 app.use(express.static('public'));
 
 // Templating
@@ -32,8 +32,10 @@ const db = require('./db_config');
 
 // ROUTING
 const home = require('./server/routes/home')
+const file = require('./server/routes/fileUpload')
 
 app.use('/', home)
+app.use('/file-upload', file);
 // END OF ROUTING
 
 app.listen(port, () =>{

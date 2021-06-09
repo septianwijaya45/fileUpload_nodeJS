@@ -31,7 +31,9 @@ app.set('view engine', 'hbs');
 const db = require('./db_config');
 
 // ROUTING
+const home = require('./server/routes/home')
 
+app.use('/', home)
 // END OF ROUTING
 
 app.listen(port, () =>{
